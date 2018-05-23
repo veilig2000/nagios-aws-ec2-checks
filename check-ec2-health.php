@@ -21,7 +21,17 @@ $result = $ec2client->describeInstanceStatus([
     'Filters' => [
         [
             'Name' => 'event.code',
-            'Values' => ['instance-stop', 'instance-retirement']
+            'Values' => [
+                'instance-stop',        // find instances that are going to be stopped
+                'instance-retirement'   // find instances that are going to be retired
+            ]
+        ],
+        [
+            'Name' => 'instance-state-name',
+            'Values' => [
+                'pending',  //  check instances that are pending
+                'running'   //  check instances that are running
+            ]
         ]
     ],
 ]);
