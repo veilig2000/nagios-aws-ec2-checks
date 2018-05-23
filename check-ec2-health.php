@@ -62,6 +62,8 @@ if ($result->hasKey('InstanceStatuses')) {
             }
             echo "}\n";
         }
+    } else {
+        echo "OK - All instances healthy\n";
     }
 }
 
